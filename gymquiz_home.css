@@ -60,7 +60,7 @@ img {
 }
 
 .card:hover {
-    box-shadow: 0px 0px 5px grey;
+    box-shadow: 0px 0px 30px rgb(0, 0, 0);
 }
 
 .font-weight-bold {
@@ -78,12 +78,10 @@ img {
     margin: 15px;
 }
 
-p::selection,
-h1::selection,
-h2::selection,
-h3::selection,
-h4::selection,
-h5::selection {
-    background-color: rgb(0, 13, 71);
-    color: white;
+h1 {
+    font-weight: 500;
+}
+
+h3 {
+    font-weight: 300;
 }
