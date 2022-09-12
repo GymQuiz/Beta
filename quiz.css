@@ -1,0 +1,75 @@
+h1 {
+    margin-top: 1%;
+    margin-bottom: 5%;
+}
+
+.translateword {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 3em;
+    font-weight: bold;
+    background-color: rgb(99, 123, 255);
+    color: white;
+    border-radius: 20px;
+    box-shadow: 0px 0px 5px grey;
+}
+
+button {
+    width: 35%;
+    padding: 20px;
+}
+
+
+div {
+    margin: 0;
+}
+
+.quizbutton {
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+.chooseanswer {
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: rgb(73, 71, 71);
+}
+
+.trw {
+    margin-bottom: 25px;
+}
+
+.img-trw {
+    margin: 8%;
+}
+
+.textinput {
+    border-radius: 30px;
+    box-shadow: 0px 0px 5px grey;
+}
+
+.input-wrong {
+    border-radius: 30px;
+    box-shadow: 0px 0px 5px grey;
+}
+
+#ww {
+    color: black;
+}
+
+.multiple-choice-wrong {
+    color: white;
+}
+
+/*.multiple_choice {
+    display: none;
+}
+
+.textinput {
+    display: none;
+}*/
+.chooseanswer2 {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: rgb(85, 85, 85);
+}
