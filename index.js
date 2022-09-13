@@ -2,8 +2,9 @@ const fullVociDE =["Hallo", "Tschüss", "Haus", "Tisch"];
 const FullVociEN =["Hello", "Goodby", "House", "Table"];
 let vociDe = ["Hallo", "Tschüss", "Haus", "Tisch"];
 let vociEn = ["Hello", "Goodby", "House", "Table"];
-let progress = [1, 1, 1, 1]
+let progress = [2, 2, 2, 2]
 let wordIndex;
+let wordIndexFull;
 let auswahl;
 let ordre;
 let deword;
@@ -55,49 +56,58 @@ function getRandomInt(min, max) {
 
 
 function chooseword(){
+    if (progress[wordIndexFull]==0){
+      vociDe.splice(wordIndexFull,1);
+      vociEn.splice(wordIndexFull,1);
+    }
     document.getElementById("right").style.display="none";
     document.getElementById("wrong").style.display="none";
-    wordIndex = getRandomInt(0,vociDe.length); //das Wort das Abgefragt wird
-    deword = fullVociDE[wordIndex];
-    enword = FullVociEN[wordIndex];
+    wordIndex = getRandomInt(0,vociDe.length); //Index in VociDe des wort, das abgefragt wird
+    deword = vociDe[wordIndex];
+    enword = vociEn[wordIndex];
+    wordIndexFull = fullVociDE.indexOf(deword); //Index des Wort in fullVociDE
     document.getElementById("word").textContent=deword;
-    auswahl = [getRandomInt(0,fullVociDE.length), getRandomInt(0,fullVociDE.length), getRandomInt(0,fullVociDE.length)]; //Die drei falschen zur auswahl stehenden Antwort
+    auswahl = [FullVociEN[getRandomInt(0,fullVociDE.length)], FullVociEN[getRandomInt(0,fullVociDE.length)], FullVociEN[getRandomInt(0,fullVociDE.length)]]; //Die drei falschen zur auswahl stehenden Antwort
     ordre = getRandomInt(1,5);//position der richtigen Antwort
     notactive = false;
 
     if (ordre==1){
      document.getElementById("button1").textContent=enword;
-     document.getElementById("button2").textContent=FullVociEN[auswahl[0]];
-     document.getElementById("button3").textContent=FullVociEN[auswahl[1]];
-     document.getElementById("button4").textContent=FullVociEN[auswahl[2]];
+     document.getElementById("button2").textContent=auswahl[0];
+     document.getElementById("button3").textContent=auswahl[1];
+     document.getElementById("button4").textContent=auswahl[2];
     }
 
     if (ordre==2){
-      document.getElementById("button1").textContent=FullVociEN[auswahl[0]];
+      document.getElementById("button1").textContent=auswahl[0];
       document.getElementById("button2").textContent=enword;
-      document.getElementById("button3").textContent=FullVociEN[auswahl[1]];
-      document.getElementById("button4").textContent=FullVociEN[auswahl[2]];
+      document.getElementById("button3").textContent=auswahl[1];
+      document.getElementById("button4").textContent=auswahl[2];
      }
 
      if (ordre==3){
-      document.getElementById("button1").textContent=FullVociEN[auswahl[0]];
-      document.getElementById("button2").textContent=FullVociEN[auswahl[1]];
+      document.getElementById("button1").textContent=auswahl[0];
+      document.getElementById("button2").textContent=auswahl[1];
       document.getElementById("button3").textContent=enword;
-      document.getElementById("button4").textContent=FullVociEN[auswahl[2]];
+      document.getElementById("button4").textContent=auswahl[2];
      }
 
      if (ordre==4){
-      document.getElementById("button1").textContent=FullVociEN[auswahl[0]];
-      document.getElementById("button2").textContent=FullVociEN[auswahl[1]];
-      document.getElementById("button3").textContent=FullVociEN[auswahl[2]];
+      document.getElementById("button1").textContent=auswahl[0];
+      document.getElementById("button2").textContent=auswahl[1];
+      document.getElementById("button3").textContent=auswahl[2];
       document.getElementById("button4").textContent=enword;
     }
+    console.log(progress);
+    console.log(vociDe);
+    console.log(wordIndexFull);
+    console.log(fullVociDE);
 }
 
 function trueanswer(){
   notactive=true;
   document.getElementById("right").style.display="flex";
-  progress[wordIndex] = progress[wordIndex]-1;
+  progress[wordIndexFull] = progress[wordIndexFull]-1;
   setTimeout(function() {
     chooseword();
   }, 800);
@@ -106,14 +116,8 @@ function trueanswer(){
 function falseanswer(){
   notactive=true;
   document.getElementById("wrong").style.display="flex";
-  progress[wordIndex] = progress[wordIndex]-1;
+  progress[wordIndexFull] = progress[wordIndexFull]+1;
   document.getElementById("rightword").textContent=enword;
-  document.addEventListener("keyup", function(event) {
-    if (event.code === "Space") {
-        chooseword();
-    }
-    return
-  });
   return
 }
 
@@ -133,7 +137,7 @@ function button1(){
 }
 
 function button2(){
-  while (notactive === true){
+  if (notactive === true){
     return
   }
   if (ordre == 2){
@@ -148,7 +152,7 @@ function button2(){
 }
 
 function button3(){
-  while (notactive === true){
+  if (notactive === true){
     return
   }
   if (ordre == 3){
@@ -163,7 +167,7 @@ function button3(){
 }
 
 function button4(){
-  while (notactive === true){
+  if (notactive === true){
     return
   }
   if (ordre == 4){
@@ -177,11 +181,4 @@ function button4(){
 }
 
 chooseword();
-console.log(FullVociEN[auswahl[1]])
-console.log(FullVociEN[auswahl[2]])
-console.log(FullVociEN[auswahl[0]])
 console.log(auswahl)
-document.addEventListener("keyup", function(event) {
-  console.log(event.code)
-  return
-});
