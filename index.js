@@ -10,6 +10,7 @@ let ordre;
 let deword;
 let enword;
 let notactive;
+let eingabe;
 
 //Cookie:
 //Cookie erstellen:
@@ -62,13 +63,13 @@ function chooseword(){
     deword = vociDe[wordIndex]; //Deutsches Wort
     enword = vociEn[wordIndex]; //Englische übersetzung
     wordIndexFull = fullVociDE.indexOf(deword); //Index des Wort in fullVociDE
-    document.getElementById("word").textContent=deword; //Wort auf Webseite schreiben
     auswahl = [FullVociEN[getRandomInt(0,fullVociDE.length)], FullVociEN[getRandomInt(0,fullVociDE.length)], FullVociEN[getRandomInt(0,fullVociDE.length)]]; //Die drei falschen zur auswahl stehenden Antwortsmöglichkeiten generieren.
     ordre = getRandomInt(1,5);//position der richtigen Antwort
     notactive = false;//Variable, die verhindert, dass man zweimal Antworten kann -> Hier wird sie auf False gesetzt -> man kann Antwort wählen.
     if (progress[wordIndexFull]>1){ //Wenn Index grösser als 1-> Multiple Choice
         document.getElementById("choose").style.display="block";//choose einblenden
         document.getElementById("write").style.display="none";//write ausblenden
+        document.getElementById("mword").textContent=deword; //Wort auf Webseite schreiben
         //Buttons beschriften:
         if (ordre==1){
         document.getElementById("button1").textContent=enword;
@@ -102,6 +103,7 @@ function chooseword(){
     if (progress[wordIndexFull] == 1){ //Wenn Progress gleich 1 -> Antwort per Tastatureingabe
       document.getElementById("choose").style.display="none";//choose ausblenden
       document.getElementById("write").style.display="block";//write einblenden
+      document.getElementById("wword").textContent=deword; //Wort auf Webseite schreiben
     }
 
 
@@ -128,6 +130,21 @@ function falseanswer(){
   document.getElementById("rightword").textContent=enword;//richtiges Wort anzeigen
   return
 }
+
+//wird ausgeführt wenn submit Button gedrückt wird
+function submit(){
+  if (notactive == true){ //wenn man schon geantwortet hat, soll die funktion beendet werden.
+    return
+  }
+  eingabe = document.getElementById("eingabe").value //Eingabe aus Input abrufen
+  if (eingabe == enword){ //Wenn input gleich englisches Wort führe trueanswer() aus
+    trueanswer();
+  }
+  else{ //ansonsten führe falseanswer() aus
+    falseanswer();
+  }
+}
+
 //wird bei klick auf den jeweiligen button ausgeführt:
 function button1(){
   while (notactive === true){//wenn man nicht Antorten kann->funktion beenden
@@ -186,7 +203,9 @@ function button4(){
     console.log("false");
     falseanswer();
   }
+
 }
+
 
 chooseword();
 console.log(auswahl)

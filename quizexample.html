@@ -69,7 +69,7 @@
     <div class="container multiple_choice" id="choose">
         <div class="container">
             <h1 class="text-center">Englisch Voki I, Sekunda</h1>
-            <h3 class="h4 translateword" id="word"></h3>
+            <h3 class="h4 translateword" id="mword"></h3>
         </div>
         <br>
         <p class="text-center chooseanswer">Choose the correct option: </p>
@@ -82,17 +82,18 @@
                 <button class="btn btn-outline-primary btn-lg col-5 quizbutton" id="button4" onclick="button4()"></button>
             </div>
         </div>
+    </div>
     <div class="container bg-light text-center textinput mt-2" id="write">
         <br>
         <h3 class="h3 text-center chooseanswer">Translate the word:</h3>
-        <h1 class="inline" id="word"></h1>
+        <h1 class="inline" id="wword"></h1>
         <img src="languages.png" alt="graph" class="mx-auto d-block img-fluid img-trw">
         <h6 class="h6 chooseanswer text-start mx-5">Your answer:</h6>
         <div class="row">
             <div class="mx-5 mb-5 input-group justify-content-center col">
-                <input type="text" name="translate" id="" class="form-control" placeholder="Type your answer here..."
+                <input type="text" name="translate" id="eingabe" class="form-control" placeholder="Type your answer here..."
                     aria-describedby="button-addon2">
-                <button class="btn btn-outline-secondary" type="button" id="button-addon2" id="submit">Submit</button>
+                <button class="btn btn-outline-secondary" type="button" id="button-addon2" id="submit" onclick = "submit()">Submit</button>
 
             </div>
         </div>
