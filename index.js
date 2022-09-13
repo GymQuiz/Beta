@@ -67,8 +67,8 @@ function chooseword(){
     ordre = getRandomInt(1,5);//position der richtigen Antwort
     notactive = false;//Variable, die verhindert, dass man zweimal Antworten kann -> Hier wird sie auf False gesetzt -> man kann Antwort wählen.
     if (progress[wordIndexFull]>1){ //Wenn Index grösser als 1-> Multiple Choice
-        document.getElementById("choose").style.display="block"//choose einblenden
-        document.getElementById("write").style.display="none"//write ausblenden
+        document.getElementById("choose").style.display="block";//choose einblenden
+        document.getElementById("write").style.display="none";//write ausblenden
         //Buttons beschriften:
         if (ordre==1){
         document.getElementById("button1").textContent=enword;
@@ -100,8 +100,8 @@ function chooseword(){
       
     }
     if (progress[wordIndexFull] == 1){ //Wenn Progress gleich 1 -> Antwort per Tastatureingabe
-      document.getElementById("choose").style.display="none"//choose ausblenden
-      document.getElementById("write").style.display="block"//write einblenden
+      document.getElementById("choose").style.display="none";//choose ausblenden
+      document.getElementById("write").style.display="block";//write einblenden
     }
 
 
@@ -109,6 +109,7 @@ function chooseword(){
     console.log(vociDe);
     console.log(wordIndexFull);
     console.log(fullVociDE);
+    console.log("Richtig: "+ordre)
 }
 //Wird ausgeführt, wenn der richtige Button gedrückt wurde.
 function trueanswer(){
