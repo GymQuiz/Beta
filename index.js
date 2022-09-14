@@ -115,19 +115,13 @@ function chooseword(){
       document.getElementById("choose").style.display="none";//choose ausblenden
       document.getElementById("write").style.display="block";//write einblenden
       document.getElementById("wword").textContent=deword; //Wort auf Webseite schreiben
-      window.addEventListener("keypress", function(){
-        console.log(code)
-        if (code=="enter"){
-          chooseword();
-          return
+      document.getElementById("write").addEventListener("keypress", function(event){
+        if (event.code==="Enter"){
+          submit();
         }
-        if (notactive===true){
-          return
-        }
-      });
+      })
     }
-    console.log(ordre)
-    console.log(auswahl)
+    console.log("Richtig: "+ordre)
 }
 //Wird ausgeführt, wenn der richtige Button gedrückt wurde.
 function trueanswer(){
@@ -144,7 +138,7 @@ function falseanswer(){
   document.getElementById("wrong").style.display="flex";//Falsch Banner einblenden
   progress[wordIndexFull] = progress[wordIndexFull]+1;//Progress um 1 erhöhen
   document.getElementById("rightword").textContent=enword;//richtiges Wort anzeigen
-  return
+  document.getElementById("wrong").addEventListener("keypress", chooseword());
 }
 
 //wird ausgeführt wenn submit Button gedrückt wird
@@ -222,7 +216,5 @@ function button4(){
   }
 
 }
-
-
 chooseword();
 console.log(auswahl)
