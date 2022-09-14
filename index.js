@@ -68,6 +68,7 @@ function chooseword(){
       vociDe.splice(wordIndexFull,1); //Wort aus vociDe entfernen
       vociEn.splice(wordIndexFull,1); //Wort aus vociEn entfernen
     }
+    ordre = getRandomInt(1,5);
     document.getElementById("right").style.display="none"; //Richtig Banner ausblenden
     document.getElementById("wrong").style.display="none"; //Falsch Banner ausblenden
     wordIndex = getRandomInt(0,vociDe.length); //Index in VociDe des wortes, das abgefragt wird
@@ -114,14 +115,10 @@ function chooseword(){
       document.getElementById("choose").style.display="none";//choose ausblenden
       document.getElementById("write").style.display="block";//write einblenden
       document.getElementById("wword").textContent=deword; //Wort auf Webseite schreiben
+      
     }
-
-
-    console.log(progress);
-    console.log(vociDe);
-    console.log(wordIndexFull);
-    console.log(fullVociDE);
-    console.log("Richtig: "+ordre)
+    console.log(ordre)
+    console.log(auswahl)
 }
 //Wird ausgeführt, wenn der richtige Button gedrückt wurde.
 function trueanswer(){
