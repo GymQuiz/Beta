@@ -47,8 +47,19 @@ function setCookie(cname, cvalue, exdays) {
   
 //End off Cookie
 //Get a random Integer:
-function getRandomInt(min, max, exclude) {
+function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min) ) + min;
+}
+
+function getRandomIntEx(lengthOfArray,indexToExclude){
+
+  let rand = null;  //an integer
+
+    while(rand === null || rand === indexToExclude){
+       rand = Math.round(Math.random() * (lengthOfArray - 1));
+    }
+
+  return rand;
 }
 
 //Generation of everythin:
@@ -63,8 +74,7 @@ function chooseword(){
     deword = vociDe[wordIndex]; //Deutsches Wort
     enword = vociEn[wordIndex]; //Englische übersetzung
     wordIndexFull = fullVociDE.indexOf(deword); //Index des Wort in fullVociDE
-    auswahl = [FullVociEN[getRandomInt(0,fullVociDE.length)], FullVociEN[getRandomInt(0,fullVociDE.length)], FullVociEN[getRandomInt(0,fullVociDE.length)]]; //Die drei falschen zur auswahl stehenden Antwortsmöglichkeiten generieren.
-    ordre = getRandomInt(1,5);//position der richtigen Antwort
+    auswahl = [FullVociEN[getRandomIntEx(fullVociDE.length, wordIndexFull)], FullVociEN[getRandomIntEx(fullVociDE.length, wordIndexFull)], FullVociEN[getRandomIntEx(fullVociDE.length, wordIndexFull)]]; //Die drei falschen zur auswahl stehenden Antwortsmöglichkeiten generieren.    ordre = getRandomInt(1,5);//position der richtigen Antwort
     notactive = false;//Variable, die verhindert, dass man zweimal Antworten kann -> Hier wird sie auf False gesetzt -> man kann Antwort wählen.
     if (progress[wordIndexFull]>1){ //Wenn Index grösser als 1-> Multiple Choice
         document.getElementById("choose").style.display="block";//choose einblenden
