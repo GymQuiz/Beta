@@ -12,40 +12,6 @@ let enword;
 let notactive;
 let eingabe;
 
-//Cookie:
-//Cookie erstellen:
-function setCookie(cname, cvalue, exdays) {
-    const d = new Date();
-    d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
-    let expires = "expires="+d.toUTCString();
-    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
-  }
-  //Cookie auslesen
-  function getCookie(cname) {
-    let name = cname + "=";
-    let ca = document.cookie.split(';');
-    for(let i = 0; i < ca.length; i++) {
-      let c = ca[i];
-      while (c.charAt(0) == ' ') {
-        c = c.substring(1);
-      }
-      if (c.indexOf(name) == 0) {
-        return c.substring(name.length, c.length);
-      }
-    }
-    return "";
-  }
-  //Vorhandensein eines Cookies überprüfen
-  function checkCookie(cname) {
-    let cookiename = getCookie(cname);
-    if (cookiename != "") {
-      return false
-    } else {
-      return true
-      }
-    }
-  
-//End off Cookie
 //Get a random Integer:
 function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min) ) + min;
@@ -128,6 +94,7 @@ function trueanswer(){
   notactive=true;//Man kann nicht mehr antworten -> keine zweite Antwort möglich
   document.getElementById("right").style.display="flex";//Richtig Banner wird eingeblendet
   progress[wordIndexFull] = progress[wordIndexFull]-1;//Progress um 1 gesenkt
+  document.cookie=JSON.stringify(progress);
   setTimeout(function() {//warte 800ms befor wieder chooseword() aufgerufen wird
     chooseword();
   }, 700);
@@ -138,7 +105,8 @@ function falseanswer(){
   document.getElementById("wrong").style.display="flex";//Falsch Banner einblenden
   progress[wordIndexFull] = progress[wordIndexFull]+1;//Progress um 1 erhöhen
   document.getElementById("rightword").textContent=enword;//richtiges Wort anzeigen
-  document.getElementById("wrong").addEventListener("keypress", chooseword());
+  document.cookie=JSON.stringify(progress);
+  
 }
 
 //wird ausgeführt wenn submit Button gedrückt wird
@@ -216,5 +184,11 @@ function button4(){
   }
 
 }
+
+
+if (document.cookie!=""){
+  progress = JSON.parse(document.cookie);
+  chooseword();
+}
+
 chooseword();
-console.log(auswahl)
