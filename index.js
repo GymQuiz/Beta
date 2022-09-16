@@ -2,7 +2,7 @@ const fullVociDE =["die Reise", "reisen", "abfahren", "abreisen, verreisen", "de
 const FullVociEN =["le voyage", "voyager", "partir", "partir en voyage", "le congé", "les vacances", "la colonie (de vacancies)", "grandes vacances", "le tourisme", "le/la touriste", "touristique", "Bon voyage!", "le retour", "retourner", "rentrer", "revenir", "l'agence de voyage", "réserver", "annuler", "les bagages", "la valise", "faire ses valises", "les papiers", "la pièce d'identité", "la carte d'identité", "le passeport", "valide", "perimé périmée", "le séjour", "le repos", "reposant, reposante", "organiser", "la confirmation", "confirmer", "les vacances à la ferme", "le spa", "l'aventure", "le sac à dos", "le sac de voyage", "être de passage", "à l'étranger", "le visa", "la douane", "déclarer", "l'hôtel", "l'auberge de jeunesse", "le camping", "faire du camping", "la tente", "le sac de couchage", "la réception", "la chambre double", "la chambre simple", "complet, complète", "la pension complète", "la demi-pension", "l'appartement pour les vacances", "la saison", "l'équipement", "l'attraction touristique", "la visite", "visiter", "l'excursion", "le guide", "la visite guidée", "le circuit touristique", "l'église", "la cathédrale", "la basilique", "la synagogue", "la mosquée", "le musée", "la salle", "la tour", "le château", "le palais", "l'entrée", "la culture", "culturel, culturelle", "la chapelle", "le clocher", "la cloche", "la coupole", "le château forts, châteaux forts", "la ruine", "le temple", "la colonne", "la fontaine", "le monument", "le symbole", "la vue", "l'itinéraire", "le lieu", "l'endroit", "la campagne", "la ville", "le centre-ville, centres-villes", "le village", "la banlieue", "le quartier", "le bâtiment", "le carrefour", "la place", "la rue", "la route", "l'avenue", "le boulevard", "l'autoroute", "la sortie", "le parking", "le trottoir", "le pont", "le parc", "le cimetière", "le plan de la ville", "la carte", "la mairie", "le bus", "le tram", "l'arrêt", "le ticket", "changer", "le retard", "être en retard", "attendre", "les transports en commun", "les heures de pointe", "la gare routière", "la ligne", "la carte d'abonnement", "le distributeur de tickets", "composter", "le terminus", "la gare", "le train", "le chemin de feur", "le TGV", "le train régional", "le TER", "l'horaire", "le départ", "l'arrivée", "manquer", "rater", "louper", "le billet", "le guichet des renseignements", "la correspondance", "l'aller", "le retour", "l'aller simple", "l'aller et retour", "direct, directe", "la place assise", "le quai", "le rail", "le contrôleur, la contrôleuse", "le wagon", "le wagon-restaurant", "le wagon-lit", "le compartiment", "la voie", "le buffet de la gare", "la consigne", "la consigne automatique", "l'avion", "l'appareil", "le vol", "le vol direct", "voler", "le passager, la passagère", "la compagnie aérienne", "l'aéroport", "la porte d'embarquement", "le billet (d'avion)", "le billet électronique", "décoller", "atterrir", "le barque", "le bateau", "le port", "le ferry", "couler", "l'hélicoptère", "l'escale", "aller chercher", "l'annonce", "embarquer", "la croisière", "la cabine", "la cargaison", "charger", "le transport", "transporter", "le conteneur", "la circulation", "la voiture", "la moto", "le scooter", "le taxi", "le conducteur, la conductrice", "conduire", "le permis de conduire", "la bicyclette", "le vélo", "aller à vélo", "la route", "se trouver", "avancer", "reculer", "faire demi-tour", "le feu", "le panneau", "s'arrêter", "traverser", "garer", "se garer", "l'essence", "le gazole", "la station-service", "consommer", "le pneu", "le véhicule", "l'automobiliste", "le camion", "la caravane", "le piéton, la piétonne", "le raccourci", "le détour", "la déviation", "l'embouteillage", "bloquer", "le virage", "tourner", "le frein", "freiner", "mettre son clignotant", "la roue", "le GPS", "tomber en panne", "le sens unique", "le numéro d'immatriculation", "la plaque d'immatriculation", "l'excès de vitesse", "l'ammende", "la ceinture de sécurité", "attacher se sécurité", "le casque", "le biocarburant", "obligatoire", "faire un créneau", "l'aire (de repos)", "le péage", "à péage", "l'auto-stop", "le VAE", "faire de l'auto-stop"]; 
 let vociDe = [];//Vocis, die noch gelernt werden müssen
 let vociEn = [];
-let progress = [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2];
+let progress = [];
 let wordIndex; //Variablen für später definieren
 let wordIndexFull;
 let auswahl;
@@ -179,22 +179,28 @@ function button4(){
 function accept() {
   document.getElementById("banner").style.display = "none";
 }
+//Das ganze ausführen:
 
-if (document.cookie!=""){
+if (document.cookie!=""){ //wenn gespeicherter Fortschritt vorhanden, diesen verwenden.
+  console.log("Stored Progress")
   progress = JSON.parse(document.cookie);
   chooseword();
 }
 
-for (let i = 0; i < fullVociDE.length; i++) {
+else{ //ansonsten neuen erstellen
+  for (i=0; i<fullVociDE.length; i++){
+    progress[i]=2
+  }
+  console.log("new Progress")
+}
+
+for (let i = 0; i < fullVociDE.length; i++) { //die Vocis entsprechend dem Fortschritt laden
   console.log(i);
   if (progress[i]>0){
     vociDe[vociDe.length]=fullVociDE[i];
     vociEn[vociEn.length]=FullVociEN[i];
-    console.log("true")
   }
 }
-console.log(fullVociDE.length)
-console.log(FullVociEN.length)
 
 
-chooseword();
+chooseword(); //Wort auswählen und auf Webseite drucken.
