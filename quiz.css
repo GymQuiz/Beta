@@ -67,6 +67,10 @@ div {
     color: rgb(85, 85, 85);
 }
 
-#zahler{
-    color:white;
+.cookies {
+    position: absolute;
+    width: 50%;
+    margin-left: 25%;
+    margin-top: 10%;
+    border-radius: 5px;
 }
