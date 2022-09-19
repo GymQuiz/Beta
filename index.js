@@ -11,6 +11,8 @@ let deword;
 let enword;
 let notactive;
 let eingabe;
+let sumwrite;
+let summc;
 
 //Get a random Integer:
 function getRandomInt(min, max) {
@@ -28,6 +30,7 @@ function getRandomIntEx(lengthOfArray,indexToExclude){
   return rand;
 }
 
+
 //Generation of everythin:
 function chooseword(){
     if (progress[wordIndexFull]==0){ //Wenn der Progress dieses Wortes Null ist:
@@ -43,6 +46,20 @@ function chooseword(){
     wordIndexFull = fullVociDE.indexOf(deword); //Index des Wort in fullVociDE
     auswahl = [FullVociEN[getRandomIntEx(fullVociDE.length, wordIndexFull)], FullVociEN[getRandomIntEx(fullVociDE.length, wordIndexFull)], FullVociEN[getRandomIntEx(fullVociDE.length, wordIndexFull)]]; //Die drei falschen zur auswahl stehenden Antwortsmöglichkeiten generieren.    ordre = getRandomInt(1,5);//position der richtigen Antwort
     notactive = false;//Variable, die verhindert, dass man zweimal Antworten kann -> Hier wird sie auf False gesetzt -> man kann Antwort wählen.
+    //zähler zeig an, wie viele Voci schon gelernt wurden: 
+    summc = 0;
+    sumwrite = 0;
+    for (let j = 0; j < progress.length; j++) {
+      if (progress[j] === 0){
+        sumwrite = sumwrite+1;
+      }
+      if (progress[j] === 1)
+        summc=summc+1;
+    }
+    document.getElementById("sumwrite").textContent = sumwrite + "/" + fullVociDE.length;
+    document.getElementById("summc").textContent = summc + "/"  + fullVociDE.length;
+
+
     if (progress[wordIndexFull]>1){ //Wenn Index grösser als 1-> Multiple Choice
         document.getElementById("choose").style.display="block";//choose einblenden
         document.getElementById("write").style.display="none";//write ausblenden
@@ -87,7 +104,7 @@ function chooseword(){
         }
       })
     }
-}
+  }
 //Wird ausgeführt, wenn der richtige Button gedrückt wurde.
 function trueanswer(){
   notactive=true;//Man kann nicht mehr antworten -> keine zweite Antwort möglich
@@ -182,7 +199,6 @@ function accept() {
 //Das ganze ausführen:
 
 if (document.cookie!=""){ //wenn gespeicherter Fortschritt vorhanden, diesen verwenden.
-  console.log("Stored Progress")
   progress = JSON.parse(document.cookie);
   chooseword();
 }
@@ -191,16 +207,12 @@ else{ //ansonsten neuen erstellen
   for (i=0; i<fullVociDE.length; i++){
     progress[i]=2
   }
-  console.log("new Progress")
 }
 
-for (let i = 0; i < fullVociDE.length; i++) { //die Vocis entsprechend dem Fortschritt laden
-  console.log(i);
+for (let i = 0; i < fullVociDE.length; i++) { //die Vocis entsprechend dem Fortschritt laden.
   if (progress[i]>0){
     vociDe[vociDe.length]=fullVociDE[i];
     vociEn[vociEn.length]=FullVociEN[i];
   }
 }
-
-
 chooseword(); //Wort auswählen und auf Webseite drucken.
